@@ -1,0 +1,6 @@
+rootProject.name='AndroidLessons'
+include ':app'
+include ':musicshop'
+include ':tomandjerryanimations'
+include ':usingvideo'
+include ':playingaudio'

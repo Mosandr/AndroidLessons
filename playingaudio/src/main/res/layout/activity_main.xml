@@ -54,6 +54,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/circle_background" />
+<!--    To use vector assets should set defaultConfig {
+                            vectorDrawables.useSupportLibrary = true in build.gradle-->
 
     <ImageView
         android:id="@+id/imageView2"

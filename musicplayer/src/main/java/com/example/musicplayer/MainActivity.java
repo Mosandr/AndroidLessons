@@ -32,7 +32,7 @@ SeekBar seekBar;
             public void run() {
                 seekBar.setProgress(mp.getCurrentPosition());
             }
-        },0, 100);
+        },0, 10);
 
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

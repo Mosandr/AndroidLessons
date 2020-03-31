@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/musicplayer" />
             <option value="$PROJECT_DIR$/musicshop" />
             <option value="$PROJECT_DIR$/playingaudio" />
             <option value="$PROJECT_DIR$/tomandjerryanimations" />

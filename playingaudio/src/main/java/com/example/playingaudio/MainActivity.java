@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        MediaPlayer mp = MediaPlayer.create(this, R.raw.original);
+//       mp = MediaPlayer.create(this, R.raw.original);
          mp = MediaPlayer.create(getApplicationContext(), R.raw.original);
 
          audioManager= (AudioManager) getSystemService(AUDIO_SERVICE);
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
          Log.d("maxVol", ""+maxVol);
         voleumSeekBar = findViewById(R.id.seekBar);
         voleumSeekBar.setMax(maxVol);
+        voleumSeekBar.setProgress(maxVol/2); //startPosition
         voleumSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
              @Override
              public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {

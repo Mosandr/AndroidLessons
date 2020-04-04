@@ -48,22 +48,27 @@ public class MainActivity extends AppCompatActivity {
 //        Puma puma = new Puma();
 //        puma.talk();
 
-        Car ford = new Car();
-        Bike suzuki = new Bike();
-        Truck maz = new Truck();
+//        Car ford = new Car();
+//        Bike suzuki = new Bike();
+//        Truck maz = new Truck();
+//
+//        ArrayList<Transport> arrayList= new ArrayList<Transport>();
+//
+//        arrayList.add(ford);
+//        arrayList.add(suzuki);
+//        arrayList.add(maz);
+//
+//        Log.i("className", "Array Length is " + arrayList.size());
+//
+//        for (int i=0; i<arrayList.size(); i++) {
+//            if (arrayList.get(i) instanceof Car){Log.i("className", ""+ i+"element is Car" ); }
+//            if (arrayList.get(i) instanceof Bike){Log.i("className", ""+ i+"element is Bike" ); }
+//            if (arrayList.get(i) instanceof Truck){Log.i("className", ""+ i+"element is Truck" ); }
+//        }
 
-        ArrayList<Transport> arrayList= new ArrayList<Transport>();
+        Cat cat1= new Cat();
+        Cat cat2 = new Cat();
 
-        arrayList.add(ford);
-        arrayList.add(suzuki);
-        arrayList.add(maz);
-
-        Log.i("className", "Array Length is " + arrayList.size());
-
-        for (int i=0; i<arrayList.size(); i++) {
-            if (arrayList.get(i) instanceof Car){Log.i("className", ""+ i+"element is Car" ); }
-            if (arrayList.get(i) instanceof Bike){Log.i("className", ""+ i+"element is Bike" ); }
-            if (arrayList.get(i) instanceof Truck){Log.i("className", ""+ i+"element is Truck" ); }
-        }
+        Log.i("countCats", ""+ Cat.coutCats);
     }
 }

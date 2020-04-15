@@ -66,9 +66,21 @@ public class MainActivity extends AppCompatActivity {
 //            if (arrayList.get(i) instanceof Truck){Log.i("className", ""+ i+"element is Truck" ); }
 //        }
 
-        Cat cat1= new Cat();
-        Cat cat2 = new Cat();
+//        Cat cat1= new Cat();
+//        Cat cat2 = new Cat();
+//
+//        Log.i("countCats", ""+ Cat.coutCats);
 
-        Log.i("countCats", ""+ Cat.coutCats);
+        Bicycle bicycle = new Bicycle("Giant",12);
+        bicycle.ride();
+        bicycle.sterringWeel.turnRight();
+        bicycle.sterringWeel.turnLeft();
+
+        Bike bike1 = new Bike("Suzuki", 2010);
+//        bike1.getPassenger(55);
+//        bike1.getPassenger(65);
+
+
+
     }
 }

@@ -70,17 +70,28 @@ public class MainActivity extends AppCompatActivity {
 //        Cat cat2 = new Cat();
 //
 //        Log.i("countCats", ""+ Cat.coutCats);
-
-        Bicycle bicycle = new Bicycle("Giant",12);
-        bicycle.ride();
-        bicycle.sterringWeel.turnRight();
-        bicycle.sterringWeel.turnLeft();
-
-        Bike bike1 = new Bike("Suzuki", 2010);
+//
+//        Bicycle bicycle = new Bicycle("Giant",12);
+//        bicycle.ride();
+//        bicycle.sterringWeel.turnRight();
+//        bicycle.sterringWeel.turnLeft();
+//
+//        Bike bike1 = new Bike("Suzuki", 2010);
 //        bike1.getPassenger(55);
 //        bike1.getPassenger(65);
 
+//        Bicycle flyingBicycle = new Bicycle(){
+//            @Override
+//            public void ride() {
+//                Log.i("ride", "Ride and Fly!");
+//            }
+//        };
+//        flyingBicycle.ride();
+//
+        Person person =new Person("Dave", 25);
 
-
+        person.sayHello();
+        person.askHelp();
+        person.sayThanks();
     }
 }

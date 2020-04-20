@@ -2,7 +2,7 @@ package com.example.javaoop;
 
 import android.widget.SeekBar;
 
-public class Transport {
+public abstract class Transport {
 
     String idNumber;
     String type;
@@ -16,6 +16,8 @@ public class Transport {
         this.type = type;
         this.model = model;
     }
+
+    abstract void repair();
 
     public void drive(){
         isDriving = true;

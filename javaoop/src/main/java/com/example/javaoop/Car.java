@@ -10,6 +10,11 @@ public class Car  extends Transport {
 
     public Car(){}
 
+    @Override
+    void repair() {
+        Log.i("repair", "Drive to service station for Cars!");
+    }
+
     public Car(String bodyType, Double engineVol){
         this.bodyType = bodyType;
         this.engineVol = engineVol;

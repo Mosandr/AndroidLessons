@@ -2,7 +2,7 @@ package com.example.javaoop;
 
 import android.util.Log;
 
-public class Bike extends Transport {
+public abstract class Bike extends Transport {
     String model;
     int year;
 

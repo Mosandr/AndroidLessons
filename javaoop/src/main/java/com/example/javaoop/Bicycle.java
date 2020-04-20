@@ -8,6 +8,8 @@ public class Bicycle {
     int weight;
     SterringWeel sterringWeel;
 
+    public Bicycle(){};
+
     public Bicycle(String model, int weight){
         this.model=model;
         this.weight=weight;

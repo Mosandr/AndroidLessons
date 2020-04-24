@@ -10,6 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/activitylifecycle" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/javaoop" />
             <option value="$PROJECT_DIR$/listview" />
@@ -18,6 +19,8 @@
             <option value="$PROJECT_DIR$/pizzarecipes" />
             <option value="$PROJECT_DIR$/playingaudio" />
             <option value="$PROJECT_DIR$/recyclerview" />
+            <option value="$PROJECT_DIR$/sharedpreferences" />
+            <option value="$PROJECT_DIR$/timerusing" />
             <option value="$PROJECT_DIR$/tomandjerryanimations" />
             <option value="$PROJECT_DIR$/usingvideo" />
           </set>

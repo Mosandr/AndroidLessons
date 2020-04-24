@@ -11,42 +11,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageViewMain"-->
-<!--            android:layout_width="250dp"-->
-<!--            android:layout_height="250dp"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:padding="4dp"-->
-<!--            />-->
+        <ImageView
+            android:id="@+id/imageViewMain"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:padding="4dp"
+            />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageViewTime"-->
-<!--            android:padding="4dp"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_below="@id/imageViewMain"-->
-<!--            />-->
-<!--        <TextView-->
-<!--            android:id="@+id/textViewTime"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Time"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textColor="@android:color/darker_gray"-->
-<!--            android:textSize="20sp"-->
-<!--            android:layout_toRightOf="@id/imageViewTime"-->
-<!--            android:layout_below="@id/imageViewMain"-->
-<!--            />-->
+        <ImageView
+            android:id="@+id/imageViewTime"
+            android:padding="4dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/imageViewMain"
+            />
+
+        <TextView
+            android:id="@+id/textViewTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Time"
+            android:textStyle="bold"
+            android:textColor="#2c7072"
+            android:textSize="20sp"
+            android:layout_toRightOf="@id/imageViewTime"
+            android:layout_below="@id/imageViewMain"
+            />
 
         <TextView
             android:id="@+id/textViewShortRecipe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="4dp"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@android:color/black"
             android:textSize="20sp"
             android:text="Text recipe "
+            android:layout_below="@id/imageViewTime"
             />
 
 

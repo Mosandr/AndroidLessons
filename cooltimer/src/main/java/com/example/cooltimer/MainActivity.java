@@ -2,8 +2,10 @@ package com.example.cooltimer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -15,15 +17,16 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    MediaPlayer mp;
-    MediaPlayer mp2;
-    SeekBar seekBar;
-    Button btn;
-    TextView textView;
-    int defaultProgress =30;
-    CountDownTimer myTimer;
+
+    private MediaPlayer mp2;
+    private SeekBar seekBar;
+    private Button btn;
+    private TextView textView;
+    private int defaultProgress;
+    private CountDownTimer myTimer;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +36,17 @@ public class MainActivity extends AppCompatActivity {
         textView =findViewById(R.id.textView);
         seekBar=findViewById(R.id.seekBar);
         btn=findViewById(R.id.btn);
-        mp = MediaPlayer.create(this,R.raw.bellsound);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         mp2 = MediaPlayer.create(this,R.raw.tick_sound);
 
         seekBar.setMax(600);
-        seekBar.setProgress(defaultProgress);
-        textView.setText(getTimeText(defaultProgress));
+        setIntervalFromSharedPreference(sharedPreferences);
+
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                textView.setText(getTimeText(progress));
+               updateTimer(progress);
             }
 
             @Override
@@ -55,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
 
@@ -70,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             seekBar.setEnabled(true);
             myTimer.cancel();
             seekBar.setProgress(defaultProgress);
-            textView.setText(getTimeText(defaultProgress));
+            updateTimer(defaultProgress);
 
         }
     }
@@ -79,13 +85,30 @@ public class MainActivity extends AppCompatActivity {
         myTimer = new CountDownTimer(timerTimeSec*1000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                textView.setText(getTimeText((int) millisUntilFinished/1000));
-                mp2.start();
+                updateTimer((int) millisUntilFinished/1000);
+                SharedPreferences sharedPreferences =
+                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                if (sharedPreferences.getBoolean("enable_sound",true)){
+                    mp2.start();
+                    }
             }
 
             @Override
             public void onFinish() {
-                mp.start();
+                MediaPlayer mp = MediaPlayer.create(getApplicationContext(),R.raw.bell_sound);
+                SharedPreferences sharedPreferences =
+                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                String melodyName= sharedPreferences.getString("timer_melody","bell");
+                if(melodyName.equals("bell")){
+                    mp = MediaPlayer.create(getApplicationContext(),R.raw.bell_sound);
+                } else if(melodyName.equals("alarm siren")){
+                    mp = MediaPlayer.create(getApplicationContext(),R.raw.alarm_siren_sound);}
+                else if(melodyName.equals("bip")){
+                    mp = MediaPlayer.create(getApplicationContext(),R.raw.bip_sound);}
+
+                if (sharedPreferences.getBoolean("enable_sound",true)){
+                mp.start();}
+                seekBar.setEnabled(true);
                 seekBar.setProgress(defaultProgress);
                 btn.setText("START");
             }
@@ -122,5 +145,28 @@ public class MainActivity extends AppCompatActivity {
             startActivity(openAbout);
             return  true;}
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setIntervalFromSharedPreference(SharedPreferences sharedPreferences){
+        defaultProgress = Integer.valueOf(
+                sharedPreferences.getString("default_interval", "30"));
+        seekBar.setProgress(defaultProgress);
+        updateTimer(defaultProgress);
+    }
+
+    public void updateTimer(int sec){
+        textView.setText(getTimeText(sec));
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if(key.equals("default_interval"));
+        setIntervalFromSharedPreference(sharedPreferences);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        sharedPreferences.unregisterOnSharedPreferenceChangeListener(this);
     }
 }

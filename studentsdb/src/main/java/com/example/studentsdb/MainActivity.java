@@ -18,16 +18,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         DatabaseHandler databaseHandler = new DatabaseHandler(this);
-        databaseHandler.addStudent( new Student("Math", "Andriy", "Mosol", "5"));
+        databaseHandler.addStudent( new Student("Math", "Andriy", "Mosol", "5.0"));
         databaseHandler.addStudent( new Student("Physics", "Anton", "Petrov", "4.5"));
         databaseHandler.addStudent( new Student("Economy", "Petr", "Alekseev", "4.7"));
         databaseHandler.addStudent( new Student("Philosophy", "Anna", "Korenina", "4.3"));
-
-        Student st = databaseHandler.getStudent(1);
-        st.setSurname("Mosol");
-        st.setName("Andriy");
-        st.setFaculty("Math&Physics");
-        databaseHandler.updateSudent(st);
+        databaseHandler.addStudent( new Student("Geography", "Yana", "Ivanova", "5.0"));
 
 
         List<Student> studentsList = databaseHandler.getAllStudents();
@@ -35,6 +30,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d ("StudentsInfo",""+ student.toString());
         }
 
-        Log.d ("StudentsInfo",""+ databaseHandler.getStudentsCount());
+        Log.d ("StudentsInfo","Count of Students"+ databaseHandler.getStudentsCount());
     }
 }
